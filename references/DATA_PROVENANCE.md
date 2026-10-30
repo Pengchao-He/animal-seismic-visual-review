@@ -1,6 +1,6 @@
 # Teaching data provenance and publication scope
 
-The maintainer explicitly authorized publication of the reviewed teaching cases on
+Publication of the reviewed teaching cases was authorized on
 2026-10-29. This package exports the 15 reviewed images and 26 regions used to build
 the original rules, from teaching-workbench revision 173. The source presentation
 is `Wild animal spectrugram labels 10272026.pptx`; slide/image positions are retained
@@ -22,7 +22,7 @@ Regions use `x`, `y`, `w`, `h` normalized to the whole original image. They can 
 both waveform and spectrogram and are not equivalent to calibrated time windows.
 
 Slide 15 includes alternate views of the same event pair. Counts are not
-independent observations. Camera confirmation is reported by the maintainer and
+independent observations. Camera confirmation is reported in the teaching notes and
 has not been independently checked. Statements about mechanism, animal numbers,
 or vehicle size in original notes remain explanatory hypotheses.
 
@@ -32,7 +32,7 @@ identity or classification accuracy.
 
 ## Reuse terms pending
 
-The maintainer authorized public posting. A separate reuse license and rights-holder
+Public posting was authorized. A separate reuse license and rights-holder
 confirmation have been requested and are pending. Public availability does not
 itself establish permission to redistribute or adapt the images/notes. No blanket
 third-party ownership or license-compatibility claim is made. The synthetic SVG in

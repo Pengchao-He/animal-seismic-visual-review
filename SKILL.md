@@ -1,6 +1,6 @@
 ---
 name: animal-seismic-visual-review
-description: Classify desert nodal-geophone waveform and spectrogram images using Pengchao's reviewed visual cases. Use for vehicle, sheep-flock, Tarim-hare, gerbil, and earthquake-like signal prediction, evidence recording, or blind evaluation. Applies to plotted seismic signals, not animal photographs; permits mixed and uncertain results.
+description: Classify desert nodal-geophone waveform and spectrogram images using reviewed visual cases. Use for vehicle, sheep-flock, Tarim-hare, gerbil, and earthquake-like signal prediction, evidence recording, or blind evaluation. Applies to plotted seismic signals, not animal photographs; permits mixed and uncertain results.
 metadata:
   version: 1.2.0
 ---

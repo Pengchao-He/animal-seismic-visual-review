@@ -66,12 +66,6 @@ See the [output schema](references/output-schema.md) and [recognition rules](ref
 
 The included tests cover time-to-pixel mapping, nonzero time origins, rejected invalid windows, safe text rendering, and end-to-end HTML output. The documented example and tests were run in a clean venv with CPython **3.14.7**, **macOS 27.0**, **arm64** (Apple Silicon CPU); no GPU is required or used. Python 3.9+ compatibility is intended; only 3.14.7 was executed. Teaching-pack checks also validate all image hashes, normalized regions, and preservation of descriptions. These checks validate the renderer, not species classification accuracy. Color saturation, unequal colorbars, persistent background lines, and incomplete event windows can all affect visual interpretation.
 
-## Maintainer and publication scope
-
-Maintained by [Pengchao He](https://github.com/Pengchao-He). The empirical distinctions originate from the maintainer's reviewed annotations; implementation and packaging were assisted by Codex.
-
-Initial labels were attributed by the maintainer to **Yutan**; the published region reviews and descriptions are Pengchao He’s. The initial label contributor’s preferred credit is Yutan, confirmed by the maintainer. No third-party source code or third-party Python packages are bundled. The implementation uses Python’s standard library and browser HTML/SVG rendering; recognition rules derive from the documented teaching snapshot, rather than a published fitted model.
-
 ## License status
 
 A reuse license has not yet been selected. Code/skill and teaching-data terms will be documented separately once selected.

@@ -1,6 +1,6 @@
 # Recognition rules v1.0.0
 
-Derived solely from Pengchao's reviewed workbench revision 173. These are empirical rules to test. The camera evidence is reported by the user, not independently rechecked. User prose and structured evidence fields occasionally differ; preserve both, do not upgrade certainty.
+Derived solely from reviewed workbench revision 173. These are empirical rules to test. The camera evidence is reported by the user, not independently rechecked. User prose and structured evidence fields occasionally differ; preserve both, do not upgrade certainty.
 
 ## Vehicle — V1–V3
 
