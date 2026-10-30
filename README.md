@@ -70,18 +70,11 @@ The included tests cover time-to-pixel mapping, nonzero time origins, rejected i
 
 Maintained by [Pengchao He](https://github.com/Pengchao-He). The empirical distinctions originate from the maintainer's reviewed annotations; implementation and packaging were assisted by Codex.
 
-Initial labels were attributed by the maintainer to **Yutan**; the published region reviews and descriptions are Pengchao He’s. The initial label contributor’s preferred credit is Yutan, confirmed by the maintainer. The complete report co-author/co-developer list still awaits confirmation. No third-party source code or third-party Python packages are bundled. The implementation uses Python’s standard library and browser HTML/SVG rendering; recognition rules derive from the documented teaching snapshot, rather than a published fitted model.
+Initial labels were attributed by the maintainer to **Yutan**; the published region reviews and descriptions are Pengchao He’s. The initial label contributor’s preferred credit is Yutan, confirmed by the maintainer. No third-party source code or third-party Python packages are bundled. The implementation uses Python’s standard library and browser HTML/SVG rendering; recognition rules derive from the documented teaching snapshot, rather than a published fitted model.
 
-## CWP submission metadata and preparation status
+## License status
 
-Full CWP preparation was requested on 2026-10-29. The working standard is the maintainer-supplied CWP checklist, not an independently verified institution-wide policy. See the [requirement-by-requirement audit](CWP_AUDIT.md).
-
-- **CWP report number and year:** pending author input. This package is not yet associated with a confirmed report number.
-- **Public developer email:** pending author input and confirmation that it will remain valid through the report year. The GitHub profile above is a contact route, not a substitute for the required email.
-- **Complete report authors and code contributors:** pending confirmation; known contributions are credited above.
-- **License:** pending rights-holder selection. No root reuse license is in force yet. Public posting of reviewed cases was authorized; public visibility alone does not grant a reuse license. Code/skill and teaching-data terms will be documented separately once selected.
-
-The repository is therefore **not yet fully CWP-ready**. No report identifier, contact address, rights ownership, or license grant has been invented.
+A reuse license has not yet been selected. Code/skill and teaching-data terms will be documented separately once selected.
 
 ## Dependencies
 
