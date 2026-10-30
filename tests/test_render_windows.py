@@ -53,5 +53,18 @@ class WindowTests(unittest.TestCase):
             self.assertIn('05:00–10:00',result)
             self.assertIn('src="source.svg"',result)
 
+    def test_pending_intervals_do_not_inherit_reviewed_confidence(self):
+        """Supply pending and overlapping reviewed windows; assert honest statuses and geometry."""
+        pending = self.sample['windows'][0]
+        pending.update(label=None, confidence=None, review_status='legacy_pending', display_label='待复核')
+        overlap = dict(pending, label='gerbil', confidence='medium', review_status='visually_reviewed', start_seconds=450, end_seconds=700)
+        self.sample['windows'].append(overlap)
+        svg, legend = renderer.overlay_markup(self.sample)
+        self.assertEqual(svg.count('<g>'), 2)
+        self.assertIn('待逐事件复核', legend)
+        pending['confidence'] = 'high'
+        with self.assertRaises(ValueError):
+            renderer.overlay_markup(self.sample)
+
 # Accept standard unittest CLI arguments and print results; exit with test status.
 if __name__=='__main__':unittest.main()

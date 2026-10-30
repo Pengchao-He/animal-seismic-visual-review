@@ -36,7 +36,10 @@ def validate_sample(sample):
             raise ValueError('Window boundaries must be numeric')
         if not (math.isfinite(a) and math.isfinite(b) and t0 <= a < b <= t1):
             raise ValueError('Window lies outside the visible time axis or is reversed')
-        if window['confidence'] not in ('high', 'medium', 'low'):
+        pending = window.get('review_status') == 'legacy_pending'
+        if pending and (window['confidence'] is not None or window['label'] is not None):
+            raise ValueError('Pending legacy windows must not claim a reviewed label or confidence')
+        if window['confidence'] not in ('high', 'medium', 'low') and not pending:
             raise ValueError('Unknown confidence')
         if window.get('timing_basis') != 'visual_estimate':
             raise ValueError('This renderer requires explicitly marked visual estimates')
@@ -60,7 +63,8 @@ def overlay_markup(sample):
         label = window.get('display_label', window['label'])
         interval = f"{mmss(window['start_seconds'])}–{mmss(window['end_seconds'])}"
         boundary = ' · window edge' if window['start_seconds'] == sample['time_axis_seconds'][0] or window['end_seconds'] == sample['time_axis_seconds'][1] else ''
-        description = f'W{index} · {label} · ≈ {interval} · {window["confidence"]}{boundary}'
+        assessment = '待逐事件复核' if window.get('review_status') == 'legacy_pending' else window['confidence']
+        description = f'W{index} · {label} · ≈ {interval} · {assessment}{boundary}'
         # The full-height rectangle denotes time only, not energy at every frequency.
         groups.append(f'<g><title>{e(description)}</title><rect x="{x:.3f}" y="{y:.3f}" width="{w:.3f}" height="{h:.3f}" fill="{color}" fill-opacity="0.07" stroke="white" stroke-width="6"/><rect x="{x:.3f}" y="{y:.3f}" width="{w:.3f}" height="{h:.3f}" fill="none" stroke="{color}" stroke-width="3" stroke-dasharray="12 6"/><rect x="{x:.3f}" y="{y+9:.3f}" width="60" height="33" rx="5" fill="white"/><text x="{x+8:.3f}" y="{y+33:.3f}" font-size="24" font-family="sans-serif" font-weight="bold" fill="#172d35">W{index}</text></g>')
         legend.append(f'<span class="window-chip" style="border-color:{color}">{e(description)}</span>')
@@ -73,8 +77,8 @@ def render(manifest_path, output_path):
     """Read a JSON manifest path and write an HTML output path; return None, retain images."""
     manifest_path, output_path = Path(manifest_path).resolve(), Path(output_path).resolve()
     manifest = json.loads(manifest_path.read_text())
-    if manifest.get('schema_version') != '1.1':
-        raise ValueError('Expected schema_version 1.1')
+    if manifest.get('schema_version') not in ('1.1', '1.2'):
+        raise ValueError('Expected schema_version 1.1 or 1.2')
     cards = []
     ids = set()
     for sample in manifest['samples']:

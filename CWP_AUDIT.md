@@ -33,10 +33,10 @@ python3 -m venv /tmp/animal-seismic-cwp-venv-20261029
 ```
 
 Observed result: dependency setup needed no external packages; renderer completed;
-**4 tests passed**. The generated HTML contained two SVG window groups, the expected
+**5 tests passed**. The generated HTML contained two SVG window groups, the expected
 03:30–07:18 and 17:00–20:00 labels, and a relative link to the supplied synthetic SVG.
 Tests additionally checked time mapping with a nonzero origin, rejected invalid
-ranges, escaped labels, and preserved source bytes.
+ranges, escaped labels, and preserved source bytes. The v1.2 test additionally verifies overlapping windows and rejects copying a reviewed confidence into pending legacy intervals.
 
 The teaching-pack integrity test verified 15 PNG hashes, 26 valid normalized
 regions, per-category counts, all case IDs, the exported-record hash, and verbatim

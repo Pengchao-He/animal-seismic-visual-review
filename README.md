@@ -4,7 +4,7 @@ A Codex skill for interpreting desert nodal-geophone waveform and spectrogram im
 
 **中文：** 将人工复核的波形与时频谱经验整理为视觉判断流程，输出类别、依据、置信度和估计时间窗，并在时频谱上显示对应矩形框。原图不变，标框可以隐藏。
 
-Version **1.1.0** adds time-window annotations. The recognition rules retain their v1.0 provenance. This is an empirical interpretation workflow, not a trained neural-network classifier. No accuracy has been established by this public package.
+Version **1.2.0** makes each event the classification unit, with time-window annotations. The recognition rules retain their v1.0 provenance. This is an empirical interpretation workflow, not a trained neural-network classifier. No accuracy has been established by this public package.
 
 ## What it recognizes
 
@@ -52,7 +52,9 @@ Open `examples/report.html` in a browser. The supplied graphic is synthetic, sol
 ## Output contract
 
 - Preserve the source image and record its dimensions, time-axis limits, and spectrogram bounds.
-- Return a summary row per image and evidence, alternatives, and confidence per event.
+- Return one row per event, each with its own class, time interval, evidence, alternatives, confidence, and review status. A 20-minute image may contain multiple classes and overlapping events; its summary is derived from those records.
+- Never copy whole-image confidence to individual windows. Imported historical intervals remain explicitly pending with null current label/confidence until independently inspected. Category/confidence/status filters must match the same event.
+- Inspect the whole image for missed activity; existing boxes do not guarantee complete event coverage.
 - Record `start_seconds` and `end_seconds` and display matching `mm:ss` windows relative to the plot's time origin.
 - Draw numbered boxes and a matching class/time/confidence legend. A full-height box identifies time only, not occupied bandwidth.
 - Mark image-derived boundaries as estimates. A value such as `07:18` is a notation conversion, not proof of second-level accuracy. A window ending at the image edge may be truncated.
