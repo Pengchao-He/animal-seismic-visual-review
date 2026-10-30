@@ -70,7 +70,7 @@ The included tests cover time-to-pixel mapping, nonzero time origins, rejected i
 
 Maintained by [Pengchao He](https://github.com/Pengchao-He). The empirical distinctions originate from the maintainer's reviewed annotations; implementation and packaging were assisted by Codex.
 
-Initial labels were attributed by the maintainer to **宇潭**; the published region reviews and descriptions are Pengchao He’s. The preferred full credit for the initial label contributor and the complete report co-author/co-developer list await author confirmation. No third-party source code or third-party Python packages are bundled. The implementation uses Python’s standard library and browser HTML/SVG rendering; recognition rules derive from the documented teaching snapshot, rather than a published fitted model.
+Initial labels were attributed by the maintainer to **Yutan**; the published region reviews and descriptions are Pengchao He’s. The initial label contributor’s preferred credit is Yutan, confirmed by the maintainer. The complete report co-author/co-developer list still awaits confirmation. No third-party source code or third-party Python packages are bundled. The implementation uses Python’s standard library and browser HTML/SVG rendering; recognition rules derive from the documented teaching snapshot, rather than a published fitted model.
 
 ## CWP submission metadata and preparation status
 

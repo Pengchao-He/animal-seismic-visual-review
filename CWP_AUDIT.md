@@ -12,7 +12,7 @@ and reuse licensing remain unresolved.
 | Specific CWP report number/year | FAIL | README explicitly marks this pending | Author supplies report identity |
 | Durable developer email | FAIL | README has GitHub contact but no confirmed public email | Author supplies email and confirms longevity through report year |
 | Dependencies and versions | PASS | README Dependencies; `requirements.txt`: CPython >=3.9, tested 3.14.7, stdlib only; browser and agent requirements separated | Record a model/build for future prediction runs |
-| Complete authors/contributors/method credits | UNVERIFIED | README credits Pengchao He, initial labels attributed to 宇潭, and Codex assistance; rules cite reviewed snapshot | Author confirms full report author/co-developer list and preferred contributor names |
+| Complete authors/contributors/method credits | UNVERIFIED | README credits Pengchao He, initial labels attributed to Yutan, and Codex assistance; rules cite reviewed snapshot | Author confirms full report author/co-developer list and preferred contributor names |
 | Minimum source documentation | PASS | All Python modules/functions/classes have purpose/input/output docstrings; CLI blocks and constant mapping documented; record/schema fields described in reference docs | Keep documentation current |
 | Press-play execution | PASS | README venv/setup/render/test commands; isolated execution produced expected HTML | None |
 | Small example | PASS | Included synthetic SVG and manifest; two rendered intervals verified | Reuse grant remains pending under License below |
