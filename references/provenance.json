@@ -1,0 +1,41 @@
+{
+  "skill_version": "1.0.0",
+  "workbench_revision": 173,
+  "source_updated_at": "2026-10-29T22:36:46.165619+00:00",
+  "source_sha256": "c765778834394b5efa8a2529a56a8836ea3f5519272e528749b310a7827777f3",
+  "selected_case_ids": [
+    "ppt-s10-i1",
+    "ppt-s10-i2",
+    "ppt-s11-i1",
+    "ppt-s12-i1",
+    "ppt-s13-i1",
+    "ppt-s14-i1",
+    "ppt-s14-i2",
+    "ppt-s15-i1",
+    "ppt-s15-i2",
+    "ppt-s15-i3",
+    "ppt-s15-i4",
+    "ppt-s16-i1",
+    "ppt-s16-i2",
+    "ppt-s17-i1",
+    "ppt-s23-i1"
+  ],
+  "annotation_counts": {
+    "车辆": 11,
+    "沙鼠": 7,
+    "塔里木兔": 5,
+    "地震": 1,
+    "羊群": 2
+  },
+  "note": "Counts are annotations, not independent events. Slide 15 contains views of the same event pair. Camera confirmation is user-reported, not independently checked.",
+  "public_export": {
+    "authorized_on": "2026-10-29",
+    "scope": "15 reviewed images and 26 regions, including expert descriptions",
+    "transformations": [
+      "Removed local absolute source_path fields; original image bytes and reviewed descriptions retained."
+    ],
+    "original_records_sha256": "f66144684665caae6ab0390b9f2d1c5101e5449477b9f07e6d6e9cf2a66e6e3b",
+    "exported_records_sha256": "9a50d1b71a2e37951cbbcec451a24f93f6dbd4da88b4b1d672d5064e00065266",
+    "reuse_license": "Pending rights-holder selection; public posting authorized by maintainer."
+  }
+}

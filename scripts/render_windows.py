@@ -11,14 +11,17 @@ import os
 from pathlib import Path
 from urllib.parse import quote
 
+# Map source-class strings to display colors; unknown keys use a neutral fallback.
 COLORS = {'vehicle': '#e97700', 'gerbil': '#8054e8', 'tarim_hare': '#008d96',
           'sheep_flock': '#d63c91', 'earthquake_like': '#2164d9'}
 
 def mmss(seconds):
+    """Format numeric seconds as rounded mm:ss text; return the display string."""
     seconds = round(seconds)
     return f'{seconds // 60:02d}:{seconds % 60:02d}'
 
 def validate_sample(sample):
+    """Check a sample mapping's geometry and windows; return None or raise ValueError."""
     width, height = sample['image_width'], sample['image_height']
     x0, y0, x1, y1 = sample['spectrogram_bounds_px']
     t0, t1 = sample['time_axis_seconds']
@@ -39,6 +42,7 @@ def validate_sample(sample):
             raise ValueError('This renderer requires explicitly marked visual estimates')
 
 def window_geometry(sample, window):
+    """Map a sample and event window to an (x, y, width, height) pixel tuple."""
     x0, y0, x1, y1 = sample['spectrogram_bounds_px']
     t0, t1 = sample['time_axis_seconds']
     left = x0 + (window['start_seconds'] - t0) / (t1 - t0) * (x1 - x0)
@@ -46,6 +50,7 @@ def window_geometry(sample, window):
     return left, y0, right - left, y1 - y0
 
 def overlay_markup(sample):
+    """Validate one sample mapping; return escaped SVG overlay and HTML legend strings."""
     validate_sample(sample)
     e = html.escape
     groups, legend = [], []
@@ -65,6 +70,7 @@ def overlay_markup(sample):
 STYLE = '''.annotated-plot{position:relative}.annotated-plot img{display:block;width:100%;height:auto}.time-window-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.window-legend{display:flex;flex-wrap:wrap;gap:8px;padding:12px 20px}.window-chip{border-left:5px solid;padding:4px 9px;background:#f0f4f4;font-size:13px}.hide-windows .time-window-overlay,.hide-windows .window-legend{display:none}'''
 
 def render(manifest_path, output_path):
+    """Read a JSON manifest path and write an HTML output path; return None, retain images."""
     manifest_path, output_path = Path(manifest_path).resolve(), Path(output_path).resolve()
     manifest = json.loads(manifest_path.read_text())
     if manifest.get('schema_version') != '1.1':
@@ -84,6 +90,7 @@ def render(manifest_path, output_path):
     output_path.write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Estimated event windows</title><style>body{font:16px/1.5 system-ui;max-width:1400px;margin:32px auto;padding:0 20px;color:#20353b;background:#f3f5f5}article{background:white;padding:12px;margin:24px 0}'+STYLE+'</style><h1>Estimated event windows</h1><p>Time is relative to each displayed plot. Full-height boxes indicate time intervals only, not frequency extent. Boundaries are visual estimates, not exact detections.</p><label><input type="checkbox" checked onchange="document.body.classList.toggle(\'hide-windows\',!this.checked)"> Show windows</label>'+''.join(cards)+'</html>')
 
 if __name__ == '__main__':
+    # Accept manifest/output CLI paths, write the annotated HTML, and return no value.
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('manifest')
     parser.add_argument('output')

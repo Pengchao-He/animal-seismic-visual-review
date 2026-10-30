@@ -1,0 +1,5 @@
+# Runtime requirement: CPython >=3.9; isolated execution tested on CPython 3.14.7.
+# No third-party Python packages are required for rendering or tests.
+# Create a venv with a suitable Python, then run: python -m pip install -r requirements.txt
+# Visual classification additionally requires a vision-capable agent; the Python
+# renderer does not perform inference. Browser preview requires SVG/HTML support.

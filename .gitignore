@@ -4,9 +4,8 @@ __pycache__/
 ._*
 examples/report.html
 private-cases/
-references/images/
-references/teaching_records.json
-references/provenance.json
 prediction_runs/
 .env
 .env.*
+
+.venv/
